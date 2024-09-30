@@ -1,0 +1,121 @@
+﻿<Page x:Class="Prob_DEMO.Pages.MenuHomeAdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Prob_DEMO.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="1450"
+      Title="MenuHomeAdminPage">
+
+    <Grid Background="White">
+        <TextBlock Text="Меню"
+                   
+                   FontWeight="DemiBold"
+                   FontFamily="COMIC SANS MS"
+                   FontSize="80"/>
+        <ScrollViewer
+                      Margin="0,120,10,180"
+                      Height="450"
+                      Background="Transparent">
+            <StackPanel>
+                <ListView x:Name="ListItemsProd"
+                          d:ItemsSource="{d:SampleData ItemCount=4}" 
+                          ItemsSource="{Binding product}"
+                          Background="#80000000" Width="883" Height="454">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="1"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" 
+                                            Width="500"
+                                            Margin="5">
+                                    <Image Source="{Binding MainImagePath}" 
+                                           Width="150" 
+                                           Height="150"/>
+                                    <StackPanel Orientation="Vertical" 
+                                                Margin="5">
+
+                                        <TextBlock Text="{Binding Title}" 
+                                                   Width="250"
+                                                   HorizontalAlignment="Left"
+                                                   Height="Auto"
+                                                   FontSize="15"
+                                                   FontFamily="COMIC SANS MS"
+                                                   TextWrapping="Wrap"/>
+
+
+                                        <!--<StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Цена:" 
+                                                   Width="60"
+                                                   FontSize="20"
+                                                   Foreground="White"
+                                                   FontFamily="COMIC SANS MS"
+                                                   TextWrapping="Wrap"/>
+                                            <TextBlock Text="{Binding Price}"
+                                                   FontFamily="COMIC SANS MS"
+                                                   FontSize="20"/>
+                                            <TextBlock Text=" руб."
+                                                   FontFamily="COMIC SANS MS"
+                                                   FontSize="20"/>
+                                        </StackPanel>-->
+                                        <Border CornerRadius="20"
+                                                Background="PaleVioletRed"
+                                                Height="40"
+                                                Width="100"
+                                                HorizontalAlignment="Left"
+                                                Margin="10 10 0 0">
+
+                                            <Button x:Name="btnExitBusket" 
+                                                   
+                                                    
+                                                FontFamily="COMIC SANS MS"
+                                                    FontWeight="Medium"
+                                                    FontSize="20"
+                                                    Width="50"
+                                                    Height="40"
+                                                    Background="Transparent"
+                                                    BorderBrush="Transparent">
+                                                <TextBlock Text="Ред"/>
+                                            </Button>
+
+                                        </Border>
+                                        <Border CornerRadius="20"
+                                                Background="PaleVioletRed"
+                                                Height="40"
+                                                Width="100"
+                                                HorizontalAlignment="Left"
+                                                Margin="10 10 0 0">
+
+                                            <Button x:Name="btnAddBusket" 
+                                                   
+                                                    
+                                                FontFamily="COMIC SANS MS"
+                                                    FontWeight="Medium"
+                                                    FontSize="20"
+                                                    Width="50"
+                                                    Height="40"
+                                                    Background="Transparent"
+                                                    BorderBrush="Transparent">
+                                                <TextBlock Text="Доб"
+                                                           />
+                                            </Button>
+
+                                        </Border>
+                                    </StackPanel>
+
+                                </StackPanel>
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </ScrollViewer>
+        <Button FontSize="25" Content="Выйти" Margin="29,675,1257,22" Click="Button_Click"/>
+    </Grid>
+</Page>
